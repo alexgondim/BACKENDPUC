@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: admin  # Defina a senha do root aqui
+      MYSQL_DATABASE: userdb
+    ports:
+      - "3307:3306"  # Ajuste esta porta se necessário
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
